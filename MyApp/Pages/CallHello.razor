@@ -7,7 +7,7 @@
     Call Hello
 </h1>
 
-<form @onsubmit="submit" class="max-w-xl flex items-center">
+<form @onsubmit="submit" class="max-w-xl flex items-center mt-2">
 <CascadingValue Value=@api.Error>
     <ServiceStack.Blazor.Components.Tailwind.TextInput placeholder="What's your name?" Label="" @bind-Value="request.Name" spellcheck="false" />
     <button @onclick="submit" type="button" class="ml-2 inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
