@@ -19,14 +19,14 @@
 <form @onsubmit="submit" class="max-w-xl">
 <CascadingValue Value=@api.Error>
     <div class="shadow overflow-hidden sm:rounded-md">
-        <ServiceStack.Blazor.Components.Tailwind.ErrorSummary Except=@VisibleFields />
+        <ErrorSummary Except=@VisibleFields />
         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
           <div class="flex flex-col gap-y-4">
-            <ServiceStack.Blazor.Components.Tailwind.TextInput @bind-Value="request.DisplayName" spellcheck="false" Help="Your first and last name" required />
-            <ServiceStack.Blazor.Components.Tailwind.TextInput type="email" @bind-Value="request.Email" spellcheck="false" required />
-            <ServiceStack.Blazor.Components.Tailwind.TextInput type="password" @bind-Value="request.Password" Help="Password, 6 characters or more" required />
-            <ServiceStack.Blazor.Components.Tailwind.TextInput type="password" @bind-Value="request.ConfirmPassword" />
-            <ServiceStack.Blazor.Components.Tailwind.CheckboxInput @bind-Value="request.AutoLogin" />
+            <TextInput @bind-Value="request.DisplayName" spellcheck="false" Help="Your first and last name" required />
+            <TextInput type="email" @bind-Value="request.Email" spellcheck="false" required />
+            <TextInput type="password" @bind-Value="request.Password" Help="Password, 6 characters or more" required />
+            <TextInput type="password" @bind-Value="request.ConfirmPassword" />
+            <CheckboxInput @bind-Value="request.AutoLogin" />
           </div>
         </div>
         <div class="pt-5 px-4 py-3 bg-gray-50 text-right sm:px-6">

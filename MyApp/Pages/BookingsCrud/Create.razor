@@ -13,34 +13,34 @@
         <fieldset>
             <legend class="text-base font-medium text-gray-900 text-center mb-4">New Booking</legend>
 
-            <ServiceStack.Blazor.Components.Tailwind.ErrorSummary Except=@VisibleFields />
+            <ErrorSummary Except=@VisibleFields />
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.TextInput @bind-Value="request.Name" required placeholder="Name for this booking" />
+                    <TextInput @bind-Value="request.Name" required placeholder="Name for this booking" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.SelectInput @bind-Value="request.RoomType" Options=@(Enum.GetValues<RoomType>()) /> 
+                    <SelectInput @bind-Value="request.RoomType" Options=@(Enum.GetValues<RoomType>()) /> 
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.TextInput type="number" @bind-Value="request.RoomNumber" min="0" required />
+                    <TextInput type="number" @bind-Value="request.RoomNumber" min="0" required />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.TextInput type="number" @bind-Value="request.Cost" min="0" required />
+                    <TextInput type="number" @bind-Value="request.Cost" min="0" required />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.DateTimeInput @bind-Value="request.BookingStartDate" required />
+                    <DateTimeInput @bind-Value="request.BookingStartDate" required />
                 </div>
                 <div class="col-span-6 sm:col-span-3">
-                    <ServiceStack.Blazor.Components.Tailwind.DateTimeInput @bind-Value="request.BookingEndDate" />
+                    <DateTimeInput @bind-Value="request.BookingEndDate" />
                 </div>
     
                 <div class="col-span-6">
-                    <ServiceStack.Blazor.Components.Tailwind.TextAreaInput @bind-Value="request.Notes" placeholder="Notes about this booking" style="height:6rem" />
+                    <TextAreaInput @bind-Value="request.Notes" placeholder="Notes about this booking" style="height:6rem" />
                 </div>
             </div>
         </fieldset>

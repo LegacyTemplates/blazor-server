@@ -10,9 +10,9 @@
 <form @onsubmit="addTodo" class="max-w-xl">
 <CascadingValue Value=@errorStatus>
 
-    <ServiceStack.Blazor.Components.Tailwind.ErrorSummary Except=@VisibleFields />
+    <ErrorSummary Except=@VisibleFields />
 
-    <ServiceStack.Blazor.Components.Tailwind.TextInput placeholder="What needs to be done?" @bind-Value="request.Text" Label="" />
+    <TextInput placeholder="What needs to be done?" @bind-Value="request.Text" Label="" />
 
     <div class="mt-4 bg-white shadow overflow-hidden rounded-md">
         <ul role="list" class="divide-y divide-gray-200">

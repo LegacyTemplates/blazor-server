@@ -27,7 +27,7 @@ else if (render.Error == null)
     <Loading />
 }
 
-<ServiceStack.Blazor.Components.Tailwind.ErrorSummary Status=@render.Error />
+<ErrorSummary Status=@render.Error />
 
 @code {
     [Parameter]

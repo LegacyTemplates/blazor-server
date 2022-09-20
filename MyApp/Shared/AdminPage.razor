@@ -30,7 +30,7 @@
           </ol>
         </nav>
 
-        <ServiceStack.Blazor.Components.Tailwind.ErrorSummary Status=@appMetadataApi.Error />
+        <ErrorSummary Status=@appMetadataApi.Error />
 
     @if (!User.HasRole(AppRoles.Admin))
     {

@@ -1,9 +1,9 @@
 using System.Globalization;
 using System.Net;
-using ServiceStack;
 using MyApp.Data;
 using MyApp.Auth;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using ServiceStack.Blazor;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.DataProtection;
@@ -18,7 +18,7 @@ builder.Services.AddServerSideBlazor().AddCircuitOptions(o =>
     o.DetailedErrors = true;
 });
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<LocalStorage>();
+builder.Services.AddScoped<ProtectedLocalStorage>();
 var baseUrl = builder.Environment.IsDevelopment() ? 
     "https://localhost:5001" : "http://" + IPAddress.Loopback;
 
