@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net;
 using ServiceStack;
 using MyApp.Data;
@@ -7,6 +8,7 @@ using ServiceStack.Blazor;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.DataProtection;
 
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
