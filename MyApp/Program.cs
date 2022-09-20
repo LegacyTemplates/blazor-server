@@ -19,6 +19,7 @@ builder.Services.AddServerSideBlazor().AddCircuitOptions(o =>
 });
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<ProtectedLocalStorage>();
+builder.Services.AddScoped<LocalStorage>();
 var baseUrl = builder.Environment.IsDevelopment() ? 
     "https://localhost:5001" : "http://" + IPAddress.Loopback;
 
