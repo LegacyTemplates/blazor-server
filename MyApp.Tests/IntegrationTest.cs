@@ -1,6 +1,6 @@
+﻿using NUnit.Framework;
 using Funq;
 using ServiceStack;
-using NUnit.Framework;
 using MyApp.ServiceInterface;
 using MyApp.ServiceModel;
 

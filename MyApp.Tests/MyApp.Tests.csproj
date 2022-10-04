@@ -20,6 +20,7 @@
     <ItemGroup>
         <ProjectReference Include="..\MyApp.ServiceInterface\MyApp.ServiceInterface.csproj" />
         <ProjectReference Include="..\MyApp.ServiceModel\MyApp.ServiceModel.csproj" />
+        <ProjectReference Include="..\MyApp\MyApp.csproj" />
 
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.*" />
         <PackageReference Include="NUnit" Version="3.*" />

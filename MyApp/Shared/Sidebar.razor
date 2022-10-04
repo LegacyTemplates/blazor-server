@@ -1,5 +1,4 @@
-@using MyApp.Auth
-@inject ServiceStackStateProvider AuthStateProvider
+﻿@inject ServiceStackStateProvider AuthStateProvider
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JS
 
@@ -81,16 +80,12 @@
 
     string? LoginUrl { get; set; }
 
-    List<NavItem> NavItems { get; set; } = new();
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (NavItems.Count == 0)
-        {
-            NavItems = await JS.GetNavItemsAsync("SIDEBAR");
-            StateHasChanged();
-        }
-    }
+    List<NavItem> NavItems { get; set; } = new() {
+        new NavItem { Label = "Bookings", Href = "/secure/bookings", IconSrc = "/img/nav/bookings.svg" },
+        new NavItem { Label = "Coupons",  Href = "/secure/coupons",  IconSrc = "/img/nav/coupon.svg" },
+        new NavItem { Label = "Todos",    Href = "/todomvc",         IconSrc = "/img/nav/todomvc.svg" },
+    };
 
     protected override Task OnParametersSetAsync()
     {

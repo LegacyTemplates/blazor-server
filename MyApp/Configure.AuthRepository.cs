@@ -1,4 +1,3 @@
-using MyApp.Auth;
 using ServiceStack;
 using ServiceStack.Web;
 using ServiceStack.Data;

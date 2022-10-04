@@ -1,4 +1,4 @@
-using ServiceStack;
+﻿using ServiceStack;
 using MyApp.ServiceModel;
 using System;
 

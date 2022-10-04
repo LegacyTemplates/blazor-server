@@ -1,4 +1,4 @@
-using ServiceStack;
+﻿using ServiceStack;
 
 namespace MyApp.ServiceModel;
 

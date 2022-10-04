@@ -1,37 +1,27 @@
-using System.Globalization;
-using System.Net;
-using MyApp.Data;
-using MyApp.Auth;
+﻿using System.Net;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using ServiceStack;
 using ServiceStack.Blazor;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.DataProtection;
+using MyApp;
 
-CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor().AddCircuitOptions(o =>
-{
-    o.DetailedErrors = true;
-});
-builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<ProtectedLocalStorage>();
-builder.Services.AddScoped<LocalStorage>();
-var baseUrl = builder.Environment.IsDevelopment() ? 
-    "https://localhost:5001" : "http://" + IPAddress.Loopback;
+builder.Services.AddServerSideBlazor();
+
+var baseUrl = builder.Configuration["ApiBaseUrl"] ??
+    (builder.Environment.IsDevelopment() ? "https://localhost:5001" : "http://" + IPAddress.Loopback);
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(baseUrl) });
 builder.Services.AddBlazorApiClient(baseUrl);
 
 builder.Services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<ServiceStackStateProvider>());
 builder.Services.AddScoped<ServiceStackStateProvider>();
-builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo("/app/App_Data/"));
+
 
 var app = builder.Build();
-app.UseWebSockets();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -40,10 +30,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
@@ -53,5 +40,11 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.UseServiceStack(new AppHost());
+
+BlazorConfig.Set(new()
+{
+    EnableLogging = app.Environment.IsDevelopment(),
+    EnableVerboseLogging = app.Environment.IsDevelopment(),
+});
 
 app.Run();
