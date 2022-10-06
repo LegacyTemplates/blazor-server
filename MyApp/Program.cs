@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using ServiceStack;
 using ServiceStack.Blazor;
 using MyApp;
+using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,7 @@ app.UseServiceStack(new AppHost());
 
 BlazorConfig.Set(new()
 {
+    JSParseObject = JS.ParseObject,
     EnableLogging = app.Environment.IsDevelopment(),
     EnableVerboseLogging = app.Environment.IsDevelopment(),
 });
