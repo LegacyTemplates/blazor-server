@@ -175,7 +175,7 @@ jobs:
             docker compose -f ~/.deploy/${{ github.event.repository.name }}-docker-compose.yml up ${{ github.event.repository.name }}-migration --exit-code-from ${{ github.event.repository.name }}-migration
 
       # Deploy Docker image with ServiceStack application using `docker compose up` remotely
-      - name: remote docker-compose up via ssh
+      - name: remote docker compose up via ssh
         uses: appleboy/ssh-action@v0.1.4
         env:
           APPTOKEN: ${{ secrets.GITHUB_TOKEN }}
