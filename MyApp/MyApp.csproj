@@ -25,10 +25,6 @@
         <ProjectReference Include="..\MyApp.ServiceModel\MyApp.ServiceModel.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Include="wwwroot\.well-known\microsoft-identity-association.json" />
-    </ItemGroup>
-
     <Target Name="CreateAppDataFolderBuild" AfterTargets="AfterBuild">
       <MakeDir Directories="$(BuildDir)App_Data" Condition="!Exists('$(BuildDir)App_Data')" />
     </Target>
