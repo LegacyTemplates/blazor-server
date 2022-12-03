@@ -134,7 +134,7 @@ public class CreateCoupon : ICreateDb<Coupon>, IReturn<IdResponse>
     public string Description { get; set; }
     [ValidateGreaterThan(0)]
     public int Discount { get; set; }
-    [Required]
+    [ValidateNotNull]
     public DateTime ExpiryDate { get; set; }
 }
 
@@ -146,12 +146,11 @@ public class UpdateCoupon : IPatchDb<Coupon>, IReturn<IdResponse>
     public string Id { get; set; }
     [ValidateNotEmpty]
     public string? Description { get; set; }
-    [ValidateGreaterThan(0)]
+    [ValidateNotNull, ValidateGreaterThan(0)]
     public int? Discount { get; set; }
-    [Required]
+    [ValidateNotNull]
     public DateTime? ExpiryDate { get; set; }
 }
-
 
 [Tag("bookings"), Description("Delete a Coupon")]
 [Route("/coupons/{Id}", "DELETE")]
