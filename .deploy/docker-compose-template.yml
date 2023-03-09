@@ -18,7 +18,6 @@ services:
       DEPLOY_CDN: ${DEPLOY_CDN}
     volumes:
       - ${APP_NAME}-mydb:/app/App_Data
-      - ./.deploy/${APP_NAME}_proxy.conf:/etc/nginx/vhost.d/${HOST_DOMAIN}
   ${APP_NAME}-migration:
     image: ghcr.io/${IMAGE_REPO}:${RELEASE_VERSION}
     restart: "no"
