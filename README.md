@@ -1,5 +1,5 @@
 
-# .NET 6.0 Blazor Server Tailwind Template
+# .NET 8.0 Blazor Server Tailwind Template
 
 [![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/blazor-server.png)](https://blazor-server.jamstacks.net)
 
@@ -10,7 +10,7 @@ This template will help get you started developing with Blazor WASM Apps for Ser
 ```bash
 $ dotnet tool install -g x
 
-$ x new blazor-server ProjectName
+$ x new LegacyTemplates/blazor-server ProjectName
 ```
 
 ## Getting Started
